@@ -12,6 +12,9 @@ html, body {
     height: 100%;
     background: black;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-family: serif;
 }
 
@@ -29,23 +32,23 @@ html, body {
     letter-spacing: 2px;
     cursor: pointer;
     transition: opacity 1.5s ease;
+    z-index: 10;
 }
 
-/* 배경 */
-#bg {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: url("wild stick.png") center center / cover no-repeat;
+/* 앨범 이미지 */
+#cover {
+    max-width: 70vw;
+    max-height: 70vh;
     opacity: 0;
     transition: opacity 2s ease;
+    box-shadow: 0 0 40px rgba(255,255,255,0.1);
 }
 </style>
 </head>
 
 <body>
 
-<div id="bg"></div>
+<img id="cover" src="wild stick.png">
 
 <div id="overlay" onclick="enterSite()">
     Click to Enter
@@ -57,7 +60,7 @@ html, body {
 function enterSite() {
     const audio = document.getElementById("bgm");
     const overlay = document.getElementById("overlay");
-    const bg = document.getElementById("bg");
+    const cover = document.getElementById("cover");
 
     audio.volume = 0.8;
     audio.play();
@@ -67,7 +70,7 @@ function enterSite() {
         overlay.style.display = "none";
     }, 1500);
 
-    bg.style.opacity = "1";
+    cover.style.opacity = "1";
 }
 </script>
 
